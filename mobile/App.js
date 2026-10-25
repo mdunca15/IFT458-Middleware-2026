@@ -1,11 +1,8 @@
-// I changed this comment: I dont know what to change for this file so I am gonna add my name to the comment. My name is Susan Arraez :)
-
-
-// Manages screen navigation and user authentication state
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Platform } from 'react-native';
-
-// Import all screen components
+import React, { useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Platform, ActivityIndicator } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -180,3 +177,18 @@ export default function App() {
         </AuthProvider>
     );
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+});
